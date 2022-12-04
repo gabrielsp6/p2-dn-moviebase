@@ -1,5 +1,6 @@
 import { fetcher } from 'utils/api';
 
+
 const getMovieUrl = (id) =>
   `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.TMDB_API_KEY}`;
 

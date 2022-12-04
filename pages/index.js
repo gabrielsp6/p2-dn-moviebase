@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Layout title="Moviebase">
       <Center h="full">
-        <Heading as="h2">Moviebase is up and running</Heading>
+        <Heading as="h2">Welcome, please search a movie</Heading>
       </Center>
     </Layout>
   );

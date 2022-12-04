@@ -6,6 +6,7 @@ import { buildImageUrl } from 'utils/api';
 import {
   Badge,
   Box,
+  Button,
   Center,
   CircularProgress,
   Container,
@@ -17,10 +18,40 @@ import {
 } from '@chakra-ui/react';
 import Layout from 'components/Layout';
 import HistoryButton from 'components/HistoryButton';
+import React, {useEffect, useState} from 'react'
+import AddFavourites from 'components/AddFavourites';
 
 const MovieContent = () => {
   const { id } = useRouter().query;
   const { data, error } = useSWR(id && `/api/movies/${id}`);
+  const [favourites, setFavourites] = useState([])
+  const [movie, setMovie] = useState([])
+
+
+
+  const addMovie = async () => {
+    const mappedGenres = data.genres.map( x => x.name)
+    const res = await fetch(`http://localhost:3000/api/favourites/add`, {
+        method: 'POST',
+        body: JSON.stringify({
+          id: data.id,
+          poster_path: data.poster_path,
+          title: data.title,
+          vote_average: data.vote_average,
+          genres: mappedGenres,
+          runtime: data.runtime.toString()
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const chestie = await res.json()
+      console.log(data.genres)
+      console.log(data.genres.map(x => x.name))
+      console.log(data.runtime)
+  }
+    
+
 
   if (error) {
     return (
@@ -39,6 +70,7 @@ const MovieContent = () => {
   if (data.success === false) {
     return <Text color="red">{data.status_message}</Text>;
   }
+  
   return (
     <Stack direction={['column', 'row']} spacing={4}>
       <Head>
@@ -76,6 +108,18 @@ const MovieContent = () => {
             </Badge>
           ))}
         </Stack>
+            
+        <Box>
+        
+        <Badge  colorScheme="purple" variant="outline">
+        </Badge>
+        
+        </Box>
+        <Button>
+
+        <AddFavourites onAdd={addMovie} movie = {data} />
+        </Button>
+     
         <Box>{data.overview}</Box>
       </Stack>
     </Stack>
