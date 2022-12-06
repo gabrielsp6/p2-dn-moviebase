@@ -20,6 +20,7 @@ import Layout from 'components/Layout';
 import HistoryButton from 'components/HistoryButton';
 import React, {useEffect, useState} from 'react'
 import AddFavourites from 'components/AddFavourites';
+import AddWatchList from 'components/AddWatchList';
 
 const MovieContent = () => {
   const { id } = useRouter().query;
@@ -27,7 +28,7 @@ const MovieContent = () => {
 
 
 
-  const addMovie = async () => {
+  const addMovieToFavourites = async () => {
     const mappedGenres = data.genres.map( x => x.name)
     const res = await fetch(`http://localhost:3000/api/favourites/fav`, {
         method: 'POST',
@@ -45,6 +46,26 @@ const MovieContent = () => {
       });
       alert('movie added to favourites list!')
   }
+
+  const addMovieToWatchList = async () => {
+    const mappedGenres = data.genres.map( x => x.name)
+    const res = await fetch(`http://localhost:3000/api/watchlist/movie`, {
+        method: 'POST',
+        body: JSON.stringify({
+          id: data.id,
+          poster_path: data.poster_path,
+          title: data.title,
+          vote_average: data.vote_average,
+          genres: mappedGenres,
+          runtime: data.runtime.toString()
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      alert('movie added to favourites list!')
+  }
+    
     
 
 
@@ -116,7 +137,12 @@ const MovieContent = () => {
         </Box>
         <Button>
 
-        <AddFavourites onAdd={addMovie} movie = {data} />
+        <AddFavourites onAdd={addMovieToFavourites} movie = {data} />
+        </Button>
+
+        <Button>
+
+        <AddWatchList onAdd={addMovieToWatchList} movie = {data} />
         </Button>
      
         <Box>{data.overview}</Box>
