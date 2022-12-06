@@ -1,10 +1,10 @@
-import Favourite from "./Favourite";
+import Movie from "components/Movie";
 
 const FavouritesList = ({movies, onDelete}) => {
   return (
     <div>
       {movies.favourites ? movies.favourites?.map((movie, index)=> 
-        <Favourite key={index} onDelete={onDelete} movie={movie}/>
+        <Movie key={index} onDelete={onDelete} id={movie.id}/>
       ) : 'Loading Favourites'} 
     </div>
   )

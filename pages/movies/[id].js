@@ -34,11 +34,7 @@ const MovieContent = () => {
         method: 'POST',
         body: JSON.stringify({
           id: data.id,
-          poster_path: data.poster_path,
           title: data.title,
-          vote_average: data.vote_average,
-          genres: mappedGenres,
-          runtime: data.runtime.toString()
         }),
         headers: {
           'Content-Type': 'application/json'
@@ -53,11 +49,7 @@ const MovieContent = () => {
         method: 'POST',
         body: JSON.stringify({
           id: data.id,
-          poster_path: data.poster_path,
           title: data.title,
-          vote_average: data.vote_average,
-          genres: mappedGenres,
-          runtime: data.runtime.toString()
         }),
         headers: {
           'Content-Type': 'application/json'
