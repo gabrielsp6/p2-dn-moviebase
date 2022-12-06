@@ -61,6 +61,9 @@ function Header() {
             <MenuItem href="/" disabled>
               History
             </MenuItem>
+            <MenuItem href="/favourites" >
+              Favourites
+            </MenuItem>
           </Stack>
 
           <Spacer />

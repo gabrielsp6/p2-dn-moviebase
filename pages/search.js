@@ -18,11 +18,15 @@ import {
 } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 import Layout from 'components/Layout';
+import QuickAdd from 'components/QuickAdd';
 
 function SearchBar() {
   const router = useRouter();
   const { terms } = router.query;
   const [text, setText] = useState('');
+
+
+ 
 
   // Update text input when route changes (ex when user goes back/forward)
   useEffect(() => {
@@ -58,6 +62,8 @@ function SearchResults() {
   const { terms } = useRouter().query;
   const { data, error } = useSWR(terms && `/api/search?terms=${terms}`);
 
+    
+
   if (!terms) {
     return <Text>Type some terms and submit for a quick search</Text>;
   }
@@ -87,6 +93,7 @@ function SearchResults() {
               <Text as="span">{title} </Text>
             </Button>
           </Link>
+          {/* <QuickAdd movie={data} onAdd={addMovie}/> */}
         </ListItem>
       ))}
     </UnorderedList>

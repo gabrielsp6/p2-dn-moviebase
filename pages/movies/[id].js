@@ -24,14 +24,12 @@ import AddFavourites from 'components/AddFavourites';
 const MovieContent = () => {
   const { id } = useRouter().query;
   const { data, error } = useSWR(id && `/api/movies/${id}`);
-  const [favourites, setFavourites] = useState([])
-  const [movie, setMovie] = useState([])
 
 
 
   const addMovie = async () => {
     const mappedGenres = data.genres.map( x => x.name)
-    const res = await fetch(`http://localhost:3000/api/favourites/add`, {
+    const res = await fetch(`http://localhost:3000/api/favourites/fav`, {
         method: 'POST',
         body: JSON.stringify({
           id: data.id,
@@ -45,10 +43,7 @@ const MovieContent = () => {
           'Content-Type': 'application/json'
         }
       });
-      const chestie = await res.json()
-      console.log(data.genres)
-      console.log(data.genres.map(x => x.name))
-      console.log(data.runtime)
+      alert('movie added to favourites list!')
   }
     
 
@@ -76,6 +71,8 @@ const MovieContent = () => {
       <Head>
         <title>{data.title}</title>
       </Head>
+
+      
       <Box minW="300px" pos="relative">
         <HStack pos="absolute" zIndex={1} top={2} right={2}>
           <HistoryButton />
@@ -90,6 +87,8 @@ const MovieContent = () => {
           unoptimized
         />
       </Box>
+
+      
       <Stack>
         <HStack justify="space-between">
           <Heading as="h2">{data.title}</Heading>
@@ -121,6 +120,11 @@ const MovieContent = () => {
         </Button>
      
         <Box>{data.overview}</Box>
+        <Box>
+          <Heading as={'h5'} fontSize='20px'>
+          {Math.floor(data.runtime/60)} hr {data.runtime%60} minutes 
+          </Heading>
+        </Box>
       </Stack>
     </Stack>
   );
