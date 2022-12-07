@@ -58,7 +58,7 @@ function Header() {
             <MenuItem href="/watchlist">
               Watchlist
             </MenuItem>
-            <MenuItem href="/" disabled>
+            <MenuItem href="/historypage" >
               History
             </MenuItem>
             <MenuItem href="/favourites" >

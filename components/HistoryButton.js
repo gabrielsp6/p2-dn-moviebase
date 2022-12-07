@@ -9,6 +9,19 @@ export default function HistoryButton() {
   const { data } = useSWR(`/api/history/${id}`);
   const { mutate } = useSWRConfig();
 
+
+  const deleteFromWatchList= async (movieId) => {
+    await fetch(`http://localhost:3000/api/watchlist/movie`, {
+      method: 'DELETE',
+      body: JSON.stringify({
+        id: movieId
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+
   return (
     <Tooltip label={data?.found ? 'Remove from history' : 'Add to history'}>
       <IconButton
@@ -21,6 +34,23 @@ export default function HistoryButton() {
               method: data.found ? 'DELETE' : 'PUT',
             })
           );
+          ////THE MOVIE SHOULD BE DELETED FROM WATCHLIST AFTER IT IS SEEN (HISTORY)
+          ////FETCHER WAY OF DELETING MOVIE FROM WATCHLIST CURRENTLY IN PROGRESS
+          // fetcher('http://localhost:3000/api/watchlist/movie', {
+          //   method: 'DELETE',
+          //   body: JSON.stringify({
+          //     id: id
+          //   }),
+          //   headers: {
+          //     'Content-Type': 'application-json'
+          //   }
+          // })
+          deleteFromWatchList(id)
+
+
+
+
+
         }}
       >
         <CalendarIcon />
