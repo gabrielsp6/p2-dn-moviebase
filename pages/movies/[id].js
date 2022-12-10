@@ -21,10 +21,41 @@ import HistoryButton from 'components/HistoryButton';
 import React, {useEffect, useState} from 'react'
 import AddFavourites from 'components/AddFavourites';
 import AddWatchList from 'components/AddWatchList';
+import Recommendations from 'components/Recommendations';
+import RecommendedMovies from 'components/RecommendedMovies';
 
 const MovieContent = () => {
+  
   const { id } = useRouter().query;
   const { data, error } = useSWR(id && `/api/movies/${id}`);
+//   const { dataRecommendation, errorRecommendation } = useSWR(id && `/api/recommendation/${id}`);
+
+//   const [recommendations, setRecommendations] = useState([])
+//   const movieId = id
+//   const fetchRecommendations = async () => {
+//     try {
+      
+//         const res = await fetch(`http://localhost:3000/api/recommendation/${data.id}`, {
+//         method: 'GET'
+//         })  
+//         const fetchedRecommendations = await res.json()
+//         console.log(fetchedRecommendations)
+//         return fetchedRecommendations
+//     } catch (e) {
+//         console.log(e)
+//     }
+    
+// }
+
+//   useEffect(() => {
+//     const getRecommendations = async () => {
+//         const recommendationsFromServer = await fetchRecommendations()
+//         setRecommendations(recommendationsFromServer)
+//     }
+//     getRecommendations()
+//     console.log(dataRecommendation)
+//     }, [])
+
 
 
 
@@ -80,6 +111,9 @@ const MovieContent = () => {
   }
   
   return (
+    <Container>
+
+   
     <Stack direction={['column', 'row']} spacing={4}>
       <Head>
         <title>{data.title}</title>
@@ -143,8 +177,19 @@ const MovieContent = () => {
           {Math.floor(data.runtime/60)} hr {data.runtime%60} minutes 
           </Heading>
         </Box>
+
       </Stack>
     </Stack>
+    <Stack mt={'30px'}>
+      <Heading as={'h3'} fontSize='20px'>More movies like {data.title}:</Heading>
+      <Container>
+        <RecommendedMovies  id={data.id} title={data.title} />
+        {data.id}
+        {id}
+     
+      </Container>
+    </Stack>
+    </Container>
   );
 };
 

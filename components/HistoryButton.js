@@ -48,9 +48,6 @@ export default function HistoryButton() {
           deleteFromWatchList(id)
 
 
-
-
-
         }}
       >
         <CalendarIcon />
