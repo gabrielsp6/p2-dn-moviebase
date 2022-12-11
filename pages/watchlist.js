@@ -74,7 +74,7 @@ useEffect(() => {
   return (
     <Layout title="Watchlist">
       <Container>
-      <Heading as="h2">this is the WatchList page</Heading>
+      <Heading as="h2">Watch List</Heading>
 
       <Wrap spacing={10}>
           <WatchList movies={watchList} onDelete={deleteFromWatchList}/>

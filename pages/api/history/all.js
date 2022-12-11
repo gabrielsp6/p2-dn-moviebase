@@ -21,7 +21,8 @@ export default async function handler(req, res) {
     const test = await History.find()
 
     res.status(200).json({
-        historylist: test
+        historylist: test,
+        numberOfItems: test.length
     })
 } else if(method === 'DELETE') {
     const test = await History.remove({id: req.body.id})

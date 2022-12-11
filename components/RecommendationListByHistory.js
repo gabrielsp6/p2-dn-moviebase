@@ -20,8 +20,33 @@ import Recommendations from "./Recommendations";
 import RecommendationCard from "/components/RecommendationCard";
 import FavouritesList from "./FavouritesList";
 
+  const GetMovieTitleFromId = ({movieId}) => {
+
+    const { data, error } = useSWR(movieId && `/api/movies/${movieId}`);
+
+    if (error) {
+        return <Text color="red">An error occured</Text>;
+      }
+    
+      if (!data) {
+        return (
+          <Center h="full">
+            <CircularProgress isIndeterminate />
+          </Center>
+        );
+      }
+
+    return (
+        <Heading as="h2" size={'lg'}>
+        {data.title}
+        </Heading>
+    )
+
+
+  }
+
   
-  const RecommendedMovies = ({ id, title }) => {
+  const RecommendationListByHistory = ({ id, title }) => {
     const { data, error } = useSWR(id && `/api/recommendation/${id}`);
   
     if (error) {
@@ -41,10 +66,15 @@ import FavouritesList from "./FavouritesList";
     return (
      
     <>
-      <Recommendations movies={recommendations} />
+     <Heading as="h2">Because you watched: 
+     </Heading>
+     <Heading as="h2" size={'lg'}>
+     <GetMovieTitleFromId movieId={id} />
+     </Heading>
+        <Recommendations movies={recommendations} />
     </>
     );
   };
   
-  export default RecommendedMovies;
+  export default RecommendationListByHistory;
   

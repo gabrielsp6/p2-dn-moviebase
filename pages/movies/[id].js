@@ -28,36 +28,6 @@ const MovieContent = () => {
   
   const { id } = useRouter().query;
   const { data, error } = useSWR(id && `/api/movies/${id}`);
-//   const { dataRecommendation, errorRecommendation } = useSWR(id && `/api/recommendation/${id}`);
-
-//   const [recommendations, setRecommendations] = useState([])
-//   const movieId = id
-//   const fetchRecommendations = async () => {
-//     try {
-      
-//         const res = await fetch(`http://localhost:3000/api/recommendation/${data.id}`, {
-//         method: 'GET'
-//         })  
-//         const fetchedRecommendations = await res.json()
-//         console.log(fetchedRecommendations)
-//         return fetchedRecommendations
-//     } catch (e) {
-//         console.log(e)
-//     }
-    
-// }
-
-//   useEffect(() => {
-//     const getRecommendations = async () => {
-//         const recommendationsFromServer = await fetchRecommendations()
-//         setRecommendations(recommendationsFromServer)
-//     }
-//     getRecommendations()
-//     console.log(dataRecommendation)
-//     }, [])
-
-
-
 
   const addMovieToFavourites = async () => {
     const mappedGenres = data.genres.map( x => x.name)
@@ -88,10 +58,7 @@ const MovieContent = () => {
       });
       alert('movie added to favourites list!')
   }
-    
-    
-
-
+     
   if (error) {
     return (
       <Text color="red">
@@ -112,14 +79,10 @@ const MovieContent = () => {
   
   return (
     <Container>
-
-   
     <Stack direction={['column', 'row']} spacing={4}>
       <Head>
         <title>{data.title}</title>
       </Head>
-
-      
       <Box minW="300px" pos="relative">
         <HStack pos="absolute" zIndex={1} top={2} right={2}>
           <HistoryButton />
@@ -135,7 +98,6 @@ const MovieContent = () => {
         />
       </Box>
 
-      
       <Stack>
         <HStack justify="space-between">
           <Heading as="h2">{data.title}</Heading>
@@ -173,6 +135,7 @@ const MovieContent = () => {
      
         <Box>{data.overview}</Box>
         <Box>
+          
           <Heading as={'h5'} fontSize='20px'>
           {Math.floor(data.runtime/60)} hr {data.runtime%60} minutes 
           </Heading>
@@ -184,9 +147,6 @@ const MovieContent = () => {
       <Heading as={'h3'} fontSize='20px'>More movies like {data.title}:</Heading>
       <Container>
         <RecommendedMovies  id={data.id} title={data.title} />
-        {data.id}
-        {id}
-     
       </Container>
     </Stack>
     </Container>

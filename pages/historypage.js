@@ -14,7 +14,8 @@ import {
   Button,
   Badge,
   Heading,
-  Box
+  Box,
+  Wrap
 } from '@chakra-ui/react';
 import Layout from 'components/Layout';
 import HistoryList from 'components/HistoryList';
@@ -70,9 +71,13 @@ useEffect(() => {
 
   return (
     <Layout title="History Page">
-      <Heading as="h2">this is the favourites page</Heading>
       <Container>
+      <Heading as="h2">Your watch History</Heading>
+      </Container>
+      <Container>
+      <Wrap spacing={10}>
           <HistoryList movies={historyList} onDelete={deleteFromHistoryList}/>
+          </Wrap>
       </Container>
     </Layout>
   )

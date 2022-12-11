@@ -15,7 +15,8 @@ import {
   Button,
   Badge,
   Heading,
-  Box
+  Box,
+  Wrap
 } from '@chakra-ui/react';
 import Layout from 'components/Layout';
 import FavouritesList from 'components/FavouritesList';
@@ -71,9 +72,16 @@ useEffect(() => {
 
   return (
     <Layout title="Favourites">
-      <Heading as="h2">this is the favourites page</Heading>
+
       <Container>
+      <Heading as="h2">Favourites</Heading>
+
+      </Container>
+      <Container>
+
+        <Wrap>
           <FavouritesList movies={favourites} onDelete={deleteFromFavourites}/>
+          </Wrap>
       </Container>
     </Layout>
   )

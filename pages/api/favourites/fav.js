@@ -16,7 +16,8 @@ export default async function handler(req, res) {
         const test = await Favourites.find()
 
         res.status(200).json({
-            favourites: test
+            favourites: test,
+            numberOfItems: test.length
         })
     } else if(req.method === 'DELETE') {
         const test = await Favourites.remove({id: req.body.id})
