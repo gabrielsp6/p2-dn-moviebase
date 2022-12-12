@@ -21,8 +21,9 @@ import HistoryButton from 'components/HistoryButton';
 import React, {useEffect, useState} from 'react'
 import AddFavourites from 'components/AddFavourites';
 import AddWatchList from 'components/AddWatchList';
-import Recommendations from 'components/Recommendations';
 import RecommendedMovies from 'components/RecommendedMovies';
+import FavouriteToggleButton from 'components/FavouriteToggleButton';
+import WatchListToggleButton from 'components/WatchListToggleButton';
 
 const MovieContent = () => {
   
@@ -123,15 +124,16 @@ const MovieContent = () => {
         </Badge>
         
         </Box>
-        <Button>
+        {/* <Button>
 
         <AddFavourites onAdd={addMovieToFavourites} movie = {data} />
-        </Button>
-
-        <Button>
+        </Button> */}
+        <FavouriteToggleButton />
+        <WatchListToggleButton />
+        {/* <Button>
 
         <AddWatchList onAdd={addMovieToWatchList} movie = {data} />
-        </Button>
+        </Button> */}
      
         <Box>{data.overview}</Box>
         <Box>

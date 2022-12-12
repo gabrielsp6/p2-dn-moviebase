@@ -46,7 +46,7 @@ import FavouritesList from "./FavouritesList";
   }
 
   
-  const RecommendationListByHistory = ({ id }) => {
+  const RecommendationListByFavourites= ({ id }) => {
     const { data, error } = useSWR(id && `/api/recommendation/${id}`);
   
     if (error) {
@@ -60,12 +60,13 @@ import FavouritesList from "./FavouritesList";
         </Center>
       );
     }
-    //slice the array  only 5 recommendations are enough
+
+    //slice the array only 5 recommendations are enough
     const recommendations = data.recommendations.results.slice(0,5);
     return (
-     
+
     <>
-     <Heading as="h2">Because you watched: 
+     <Heading as="h2">Because you favourited: 
      </Heading>
      <Heading as="h2" size={'lg'}>
      <GetMovieTitleFromId movieId={id} />
@@ -75,5 +76,5 @@ import FavouritesList from "./FavouritesList";
     );
   };
   
-  export default RecommendationListByHistory;
+  export default RecommendationListByFavourites;
   

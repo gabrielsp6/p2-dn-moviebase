@@ -2,6 +2,7 @@
 import dbConnect from 'utils/dbConnect';
 import WatchListMovie from 'models/WatchListMovie';
 
+
 export default async function handler(req, res) {
     await dbConnect();
 

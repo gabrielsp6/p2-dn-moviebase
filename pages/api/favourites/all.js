@@ -2,6 +2,7 @@
 import dbConnect from 'utils/dbConnect';
 import Favourites from 'models/Favourites';
 
+// api used for whole favourite list 
 export default async function handler(req, res) {
     await dbConnect();
 

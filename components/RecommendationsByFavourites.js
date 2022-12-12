@@ -16,23 +16,36 @@ import {
   Button,
   Badge,
   Heading,
-  Box
+  Box,
+  Center,
+  CircularProgress
 } from '@chakra-ui/react';
 
-
-const RecommendationsByFavourites= () => {
-
-    const { data, error } = useSWR(`/api/favourites/fav`);
+import RecommendationListByFavourites from './RecommendationListByFavourites';
 
 
-    if(!data){
-        return (
-          'loading'
-        )
-      }
-  return (
-    'aaa'
-  )
+
+const RecommendationsByFavourites= ({id}) => {
+
+  const { data, error } = useSWR(`/api/favourites/all`);
+
+
+  if(!data){
+
+      return (
+        'loading'
+      )
+    }
+
+return (
+  <Container>
+  <Heading as="h2" size={'lg'}>
+  </Heading>
+   <RecommendationListByFavourites id={data.favourites[Math.floor(Math.random()*data.favourites.length)].id} />
+  </Container>
+)
+
+
 }
 
 export default RecommendationsByFavourites

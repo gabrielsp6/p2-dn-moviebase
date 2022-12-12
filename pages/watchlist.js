@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-
+import useSWR from "swr";
 import {
   Input,
   IconButton,
@@ -23,36 +23,37 @@ import Layout from 'components/Layout';
 import WatchList from 'components/WatchList';
 
 
-
 const WatchListPage = () => {
 
-const [watchList, setWatchList] = useState([])
+  const [watchList, setWatchList] = useState([])
+  const [totalRuntime, setTotalRuntime] = useState([])
 
 
-useEffect(() => {
+  useEffect(() => {
     const getWatchList = async () => {
-        const watchListFromServer = await fetchWatchList()
+        const watchListFromServer = await fetchWatchlist()
         setWatchList(watchListFromServer)
     }
     getWatchList()
     }, [])
 
-    // Fetch WatchList
-    const fetchWatchList = async () => {
-        try {
-            const res = await fetch('http://localhost:3000/api/watchlist/movie', {
-            method: 'GET'
-            })  
-            const data = await res.json()
-            console.log(data)
-            return data
-        } catch (e) {
-            console.log(e)
-        }
-    }
 
+    const fetchWatchlist = async () => {
+      try {
+          const res = await fetch('http://localhost:3000/api/watchlist/all', {
+          method: 'GET'
+          })  
+          const data = await res.json()
+          console.log(data)
+          return data
+      } catch (e) {
+          console.log(e)
+      }
+  }
+
+  
   const deleteFromWatchList= async (movieId) => {
-    await fetch(`http://localhost:3000/api/watchlist/movie`, {
+    await fetch(`http://localhost:3000/api/watchlist/all`, {
       method: 'DELETE',
       body: JSON.stringify({
         id: movieId
@@ -61,11 +62,11 @@ useEffect(() => {
         'Content-Type': 'application/json'
       }
     })
-    alert('deleted movie with id '+ movieId + ' from watchlist')
+    alert('deleted movie with id '+ movieId + ' from watchlist aaaa')
     
     //update list
       const getWatchList = async () => {
-      const watchListFromServer = await fetchWatchList()
+      const watchListFromServer = await fetchWatchlist()
       setWatchList(watchListFromServer)
     }
     getWatchList()
@@ -77,7 +78,7 @@ useEffect(() => {
       <Heading as="h2">Watch List</Heading>
 
       <Wrap spacing={10}>
-          <WatchList movies={watchList} onDelete={deleteFromWatchList}/>
+          <WatchList onDelete={deleteFromWatchList}/>
       </Wrap>
 
       </Container>

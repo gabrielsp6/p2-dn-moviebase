@@ -1,16 +1,20 @@
 import useSWR from 'swr';
+import React, {useEffect, useState} from 'react'
 import { buildImageUrl } from 'utils/api';
 import Image from 'next/image';
 
 import {
     Box,
+    Button,
     Center,
     CircularProgress,
     Container,
-    Text
+    Text,
+    Heading
   } from '@chakra-ui/react';
+import Head from 'next/head';
 
-const RecommendationCard = ({id}) => {
+const Movie = ({id}) => {
 
 const { data, error } = useSWR(id && `/api/movies/${id}`);
 
@@ -37,21 +41,26 @@ const { data, error } = useSWR(id && `/api/movies/${id}`);
   return (
     <div key={id}>
 
-      <Box minW="200px"
+
+      <Box minW="150px"
       pos="relative"
-       width='200px' 
-       _groupHover={{ color: 'tomato' }}
+       width='150px' 
        >
         <Container>
 
-        {data ? data.title : 'loading movie details --- please wait'}
+{/* 
+        {data ? data.title : 'loading movie details --- please wait'} */}
+
 
         <Image
           src={buildImageUrl(data.poster_path, 'w300')}
           alt="Movie poster"
+          layout="responsive"
           width="200"
           height="350"
+          objectFit="contain"
           unoptimized
+          
           />
           </Container>
       </Box>
@@ -59,4 +68,4 @@ const { data, error } = useSWR(id && `/api/movies/${id}`);
   )
 }
 
-export default RecommendationCard
+export default Movie

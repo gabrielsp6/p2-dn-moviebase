@@ -6,19 +6,12 @@ import HistoryButton from 'components/HistoryButton';
 import Image from 'next/image';
 
 import {
-    Badge,
     Box,
     Button,
     Center,
     CircularProgress,
     Container,
-    Heading,
-    HStack,
-    Stack,
-    Tag,
     Text,
-    Wrap,
-    WrapItem
   } from '@chakra-ui/react';
 
 const Movie = ({id, onDelete}) => {
@@ -71,10 +64,10 @@ const { data, error } = useSWR(id && `/api/movies/${id}`);
         <Image
           src={buildImageUrl(data.poster_path, 'w300')}
           alt="Movie poster"
-          layout="responsive"
+      
           width="200"
           height="350"
-          objectFit="contain"
+     
           unoptimized
           />
           </Container>

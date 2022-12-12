@@ -39,7 +39,7 @@ useEffect(() => {
     // Fetch Favourites
     const fetchFavourites = async () => {
         try {
-            const res = await fetch('http://localhost:3000/api/favourites/fav', {
+            const res = await fetch('http://localhost:3000/api/favourites/all', {
             method: 'GET'
             })  
             const data = await res.json()
@@ -51,7 +51,7 @@ useEffect(() => {
     }
 
   const deleteFromFavourites = async (movieId) => {
-    await fetch(`http://localhost:3000/api/favourites/fav`, {
+    await fetch(`http://localhost:3000/api/favourites/all`, {
       method: 'DELETE',
       body: JSON.stringify({
         id: movieId
@@ -80,7 +80,7 @@ useEffect(() => {
       <Container>
 
         <Wrap>
-          <FavouritesList movies={favourites} onDelete={deleteFromFavourites}/>
+          <FavouritesList onDelete={deleteFromFavourites}/>
           </Wrap>
       </Container>
     </Layout>
