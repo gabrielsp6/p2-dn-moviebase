@@ -62,7 +62,7 @@ const WatchListPage = () => {
         'Content-Type': 'application/json'
       }
     })
-    alert('deleted movie with id '+ movieId + ' from watchlist aaaa')
+    // alert('deleted movie with id '+ movieId + ' from watchlist aaaa')
     
     //update list
       const getWatchList = async () => {
@@ -70,6 +70,7 @@ const WatchListPage = () => {
       setWatchList(watchListFromServer)
     }
     getWatchList()
+    location.reload();
   }
 
   return (

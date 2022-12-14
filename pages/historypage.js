@@ -73,12 +73,10 @@ useEffect(() => {
   return (
     <Layout title="History Page">
       <Container>
-      <Heading as="h2">Your watch History</Heading>
+      <Heading as="h2" marginBottom={'20px'}>Your watch History</Heading>
       </Container>
-      <Container>
-      <Wrap spacing={10}>
+      <Container border={'2px'} borderRadius={'10px'}>
           <HistoryList movies={historyList} onDelete={deleteFromHistoryList}/>
-          </Wrap>
       </Container>
     </Layout>
   )

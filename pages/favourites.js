@@ -23,6 +23,7 @@ import FavouritesList from 'components/FavouritesList';
 
 
 
+
 const FavouritesPage = () => {
 
 const [favourites, setFavourites] = useState([])
@@ -43,7 +44,7 @@ useEffect(() => {
             method: 'GET'
             })  
             const data = await res.json()
-            console.log(data)
+      
             return data
         } catch (e) {
             console.log(e)
@@ -70,15 +71,15 @@ useEffect(() => {
   getFavourites()
   location.reload();
   }
-
+ 
   return (
     <Layout title="Favourites">
 
       <Container>
-      <Heading as="h2">Favourites</Heading>
+      <Heading as="h2" marginBottom='50px'>Favourites</Heading>
 
       </Container>
-      <Container>
+      <Container >
 
         <Wrap>
           <FavouritesList onDelete={deleteFromFavourites}/>

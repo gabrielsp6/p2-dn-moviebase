@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import Movie from "components/Movie";
+import HistoryPageMovie from "components/HistoryPageMovie";
 import {
   Stack,
   Progress
@@ -28,7 +28,7 @@ const HistoryList = ({movies, onDelete}) => {
   return (
     <Stack m={'33px'}  flexWrap="wrap" mb="4" direction={'row'}>
       {data.historylist ? data.historylist?.map((movie, index)=>
-        <Movie key={index} onDelete={onDelete} id={movie.id} isHistory={true} date={movie.date}/>
+        <HistoryPageMovie key={index} onDelete={onDelete} id={movie.id} isHistory={true} date={movie.date}/>
       ) : 'Loading History List'} 
     </Stack>
   )

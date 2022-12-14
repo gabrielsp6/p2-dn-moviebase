@@ -1,3 +1,4 @@
+import { Button, Container } from "@chakra-ui/react"
 
 const SetDateButton = ({id, date}) => {
 
@@ -18,9 +19,19 @@ const SetDateButton = ({id, date}) => {
     
 
     return (
-                  <div onClick={() => SetDate(id, date)} style={{ backgroundColor: 'red', cursor:'pointer', width:'35%', borderRadius:'5px' }}>
-                      SET 
-                  </div>
+      <Container width={'100%'}>
+
+            <Button onClick={() => SetDate(id, date)}
+            
+            cursor='pointer'
+            height={'28px'}
+            margin={'10px'}
+            alignSelf={'center'}
+            justifySelf={'center'}
+            >
+                SET 
+            </Button>
+      </Container>
     )
   }
   

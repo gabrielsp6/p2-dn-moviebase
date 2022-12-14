@@ -17,7 +17,7 @@ import {
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import SetDateButton from './SetDateButton';
-const Movie = ({id, onDelete, isHistory, date}) => {
+const HistoryPageMovie = ({id, onDelete, isHistory, date}) => {
 
 const { data, error } = useSWR(id && `/api/movies/${id}`);
 const [selectedDate, setSelectedDate] = useState(null)
@@ -43,39 +43,35 @@ const [selectedDate, setSelectedDate] = useState(null)
 
   return (
    
-    
-      <Box key={id} minW="200px"
+
+      <Box key={id} 
       pos="relative"
-       width='200px' 
-       _hover={{ cursor: 'pointer',
-       
-       transform: 'scale(1.1)', transition: '0.5s ease'}}
-       margin='2px'
-       marginBottom={10}
+       width='250px' 
+       margin='15px'
+       marginBottom={'10px'}
        padding='0'
+       border={'2px'}
+       borderRadius={'10px'}
+       padding={'15px'}
        >
 
+        <DatePicker 
+          selected={selectedDate}
+          onChange={date => setSelectedDate(date)}
+          dateFormat='yyyy-MM-dd'
+          filterDate={date => date.getDay() !== 6 && date.getDay() !==0}
+          isClearable
+          showYearDropdown
+          scrollableMonthYearDropdown
+          placeholderText='change watch date...'
 
 
-{isHistory?  (<Container> 
+        />
 
-<DatePicker 
- 
-  selected={selectedDate}
-  onChange={date => setSelectedDate(date)}
-  dateFormat='yyyy-MM-dd'
-  filterDate={date => date.getDay() !== 6 && date.getDay() !==0}
-  isClearable
-  showYearDropdown
-  scrollableMonthYearDropdown
-/>
-
-{JSON.stringify(selectedDate)}
-
-<SetDateButton id={data.id} date={selectedDate}/>
+        <SetDateButton id={data.id} date={selectedDate}/>
 
 
-</Container>) : ' '}
+
 
 
 
@@ -83,7 +79,7 @@ const [selectedDate, setSelectedDate] = useState(null)
 
           <Container 
             position='absolute'
-            width='85%'
+            width='79%'
             height='100%'
             opacity={0}
             padding='0'
@@ -114,6 +110,7 @@ const [selectedDate, setSelectedDate] = useState(null)
         </Button>
         <Link href={`/movies/${id}`} passHref legacyBehavior>
 
+       
           <Image
             src={buildImageUrl(data.poster_path, 'w200')}
             alt="Movie poster"
@@ -125,8 +122,11 @@ const [selectedDate, setSelectedDate] = useState(null)
             
             />
         </Link>
+          {isHistory?  (<div>watched on {date?.slice(0,10)}</div>) : ' '}
+
           </Container>
       </Box>
+      
   )
 }
-export default Movie
+export default HistoryPageMovie
