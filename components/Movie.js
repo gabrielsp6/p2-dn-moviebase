@@ -1,10 +1,8 @@
-import { useRouter } from 'next/router';
-import useSWR from 'swr';
-import React, {useEffect, useState} from 'react'
-import { buildImageUrl, fetcher } from 'utils/api';
-import HistoryButton from 'components/HistoryButton';
-import Image from 'next/image';
 
+import useSWR from 'swr';
+import React, { useState} from 'react'
+import { buildImageUrl } from 'utils/api';
+import Image from 'next/image';
 import {
     Box,
     Button,
@@ -12,17 +10,14 @@ import {
     CircularProgress,
     Container,
     Text,
-    InputGroup,
-    Input
+    Link
   } from '@chakra-ui/react';
-import { useSWRConfig } from "swr";
+
 
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import SetDateButton from './SetDateButton';
 const Movie = ({id, onDelete, isHistory, date}) => {
-
-
 
 const { data, error } = useSWR(id && `/api/movies/${id}`);
 const [selectedDate, setSelectedDate] = useState(null)
@@ -34,7 +29,6 @@ const [selectedDate, setSelectedDate] = useState(null)
             </Text>
         );
         }
-
 
     if (!data) {
         return (
@@ -49,36 +43,35 @@ const [selectedDate, setSelectedDate] = useState(null)
 
   return (
     <div key={id}>
-
       <Box minW="200px"
       pos="relative"
        width='200px' 
-       _groupHover={{ color: 'tomato' }}
+       _hover={{ cursor: 'pointer',
+       transform: 'scale(1.1)', transition: '0.5s ease'}}
        >
         <Container>
-
-
         {data ? data.title : 'loading movie details --- please wait'}
-
         <Button onClick={() => onDelete(id)}
          cursor='pointer'
           position={'absolute'}
           bottom='30%'
           left='30%'
           >
-
         Delete
         </Button>
+        <Link href={`/movies/${id}`} passHref legacyBehavior>
 
-        <Image
-          src={buildImageUrl(data.poster_path, 'w300')}
-          alt="Movie poster"
-      
-          width="200"
-          height="350"
-     
-          unoptimized
-          />
+       
+          <Image
+            src={buildImageUrl(data.poster_path, 'w300')}
+            alt="Movie poster"
+        
+            width="200"
+            height="350"
+
+            unoptimized
+            />
+        </Link>
           {isHistory?  (<Container>watched : {date?.slice(0,10)}</Container>) : ' '}
           {isHistory?  (<Container> 
 
@@ -103,5 +96,4 @@ const [selectedDate, setSelectedDate] = useState(null)
     </div>
   )
 }
-
 export default Movie

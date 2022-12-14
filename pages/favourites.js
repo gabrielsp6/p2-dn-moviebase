@@ -60,7 +60,7 @@ useEffect(() => {
         'Content-Type': 'application/json'
       }
     })
-    alert('deleted movie with id '+ movieId + ' from favourite list')
+    // alert('deleted movie with id '+ movieId + ' from favourite list')
     
     //update list
       const getFavourites = async () => {
@@ -68,6 +68,7 @@ useEffect(() => {
       setFavourites(favouritesFromServer)
     }
   getFavourites()
+  location.reload();
   }
 
   return (

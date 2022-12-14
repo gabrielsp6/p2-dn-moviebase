@@ -7,7 +7,8 @@ import {
     Center,
     CircularProgress,
     Container,
-    Text
+    Text,
+    Link
   } from '@chakra-ui/react';
 
 const RecommendationCard = ({id}) => {
@@ -45,6 +46,7 @@ const { data, error } = useSWR(id && `/api/movies/${id}`);
         <Container>
 
         {data ? data.title : 'loading movie details --- please wait'}
+        <Link href={`/movies/${id}`} passHref legacyBehavior>
 
         <Image
           src={buildImageUrl(data.poster_path, 'w300')}
@@ -53,6 +55,7 @@ const { data, error } = useSWR(id && `/api/movies/${id}`);
           height="350"
           unoptimized
           />
+        </Link>
           </Container>
       </Box>
     </div>

@@ -10,7 +10,9 @@ import {
     CircularProgress,
     Container,
     Text,
-    Heading
+    Heading,
+    Link,
+    transition
   } from '@chakra-ui/react';
 import Head from 'next/head';
 
@@ -40,29 +42,24 @@ const { data, error } = useSWR(id && `/api/movies/${id}`);
 
   return (
     <div key={id}>
-
-
       <Box minW="150px"
       pos="relative"
        width='150px' 
+
+       _hover={{ cursor: 'pointer',
+        transform: 'scale(1.3)', transition: '0.5s ease'}}
        >
-        <Container>
-
-{/* 
-        {data ? data.title : 'loading movie details --- please wait'} */}
-
-
-        <Image
-          src={buildImageUrl(data.poster_path, 'w300')}
-          alt="Movie poster"
-          layout="responsive"
-          width="200"
-          height="350"
-          objectFit="contain"
-          unoptimized
-          
-          />
-          </Container>
+        <Link href={`/movies/${id}`} passHref legacyBehavior>
+          <Container >
+          <Image 
+            src={buildImageUrl(data.poster_path, 'w300')}
+            alt="Movie poster"
+            width="200"
+            height="350"
+            unoptimized 
+            />
+            </Container>
+        </Link>
       </Box>
     </div>
   )

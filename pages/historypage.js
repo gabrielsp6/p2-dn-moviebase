@@ -59,7 +59,7 @@ useEffect(() => {
         'Content-Type': 'application/json'
       }
     })
-    alert('deleted movie with id '+ movieId + ' from history list')
+    // alert('deleted movie with id '+ movieId + ' from history list')
     
     //update list
       const getHistoryList = async () => {
@@ -67,6 +67,7 @@ useEffect(() => {
       sethistoryList(historyListFromServer)
     }
     getHistoryList()
+    location.reload();
   }
 
   return (
