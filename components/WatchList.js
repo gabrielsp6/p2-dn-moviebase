@@ -5,11 +5,33 @@ import {
   Container,
   Stack,
   WrapItem,
-  Progress
+  Progress,
+  Heading
 } from '@chakra-ui/react';
 import { useState, useEffect } from "react";
+import calculateGenres from 'utils/calculateGenres';
+import GenresPercentages from "./GenresPercentages";
+
 
 const WatchList = ({onDelete}) => {
+
+  const [genresList, setGenresList] = useState()
+useEffect( () => {
+  getGenresList();
+  }, [])
+
+  const getGenresList = async () => {
+    const response = await calculateGenres('671')
+    const responseJson = await response
+
+    if(responseJson) {
+      setGenresList(responseJson)
+
+      }
+  }
+  
+
+
   const { data, error } = useSWR(`/api/watchlist/all`);
 
 
@@ -27,13 +49,18 @@ const WatchList = ({onDelete}) => {
   if (data.success === false) {
     return <Text color="red">{data.status_message}</Text>;
   }
-
+  console.log(calculateGenres('555'))
   return (
-    <Stack m={'33px'}  flexWrap="wrap" mb="4" direction={'row'}>
-      {data.favourites ? data.favourites?.map((movie, index)=> 
-        <Movie key={index} onDelete={onDelete} id={movie.id}/>
-        ) : 'Loading watchlist....'} 
-    </Stack>
+
+    <Container>
+      <GenresPercentages />
+
+      <Stack m={'33px'}  flexWrap="wrap" mb="4" direction={'row'}>
+        {data.favourites ? data.favourites?.map((movie, index)=> 
+          <Movie key={index} onDelete={onDelete} id={movie.id}/>
+          ) : 'Loading watchlist....'} 
+      </Stack>
+    </Container>
   )
 }
 

@@ -1,0 +1,89 @@
+import { useState, useEffect } from "react";
+import calculateGenres from 'utils/calculateGenres';
+import {
+    Center,
+    Container,
+    Stack,
+    WrapItem,
+    Progress,
+    Heading
+  } from '@chakra-ui/react';
+
+  import { PieChart } from 'react-minimal-pie-chart';
+
+
+const GenresPercentages = () => {
+
+    const [genresList, setGenresList] = useState()
+
+    useEffect( () => {
+        getGenresList();
+        }, [])
+        
+
+    const getGenresList = async () => {
+      const response = await calculateGenres('671')
+      const responseJson = await response
+  
+      if(responseJson) {
+        setGenresList(responseJson)
+  
+        }
+    }
+    
+    if(!genresList) {
+        return (
+            'add more movies for a proper percentage calculation of genres'
+        )
+    }
+
+    if(genresList.length < 3) {
+        return (
+            'add more movies for a proper percentage calculation of genres'
+        )
+    }
+  
+  return (
+    <Container>
+        <Container>
+        <PieChart viewBoxSize={'[100,100]'} radius='50'
+  data={[
+    { title: 'One', value: parseInt((genresList[Object.keys(genresList)[0]])), color: 'blue' },
+    { title: 'Two', value: parseInt((genresList[Object.keys(genresList)[1]])), color: 'purple' },
+    { title: 'Three', value: parseInt((genresList[Object.keys(genresList)[2]])), color: 'white' },
+    { title: 'Three', value: parseInt((genresList[Object.keys(genresList)[3]])), color: 'green' }
+  ]}
+/>
+        </Container>
+
+
+        <Heading as="h2" size={'md'} color='blue' >
+            {'This list contains '}
+            {genresList && JSON.stringify(genresList[Object.keys(genresList)[0]]).slice(1,3) }
+            {' % '}
+            {genresList && JSON.stringify(Object.keys(genresList)[0]).replace(/['"]+/g, '') }
+            {' '}
+        </Heading>
+        <Heading as="h2" size={'md'} color='purple'>
+            {genresList && JSON.stringify(genresList[Object.keys(genresList)[1]]).slice(1,3) }
+            {' % '}
+            {genresList && JSON.stringify(Object.keys(genresList)[1]).replace(/['"]+/g, '') }
+            {' '}
+        </Heading>
+        <Heading as="h2" size={'md'} color='white'>
+            {genresList && JSON.stringify(genresList[Object.keys(genresList)[2]]).slice(1,3) }
+            {' % '}
+            {genresList && JSON.stringify(Object.keys(genresList)[2]).replace(/['"]+/g, '') }
+            {' '}
+        </Heading>
+        <Heading as="h2" size={'md'} color='green'>
+            {genresList && JSON.stringify(genresList[Object.keys(genresList)[3]]).slice(1,3) }
+            {' % '}
+            {genresList && JSON.stringify(Object.keys(genresList)[3]).replace(/['"]+/g, '') }
+            {' '}
+        </Heading>
+    </Container>
+  )
+}
+
+export default GenresPercentages
