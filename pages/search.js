@@ -64,7 +64,7 @@ function SearchResults() {
     
 
   if (!terms) {
-    return <Text>Type some terms and submit for a quick search</Text>;
+    return <Text >Type some terms and submit for a quick search</Text>;
   }
   if (error) {
     return (
@@ -92,7 +92,6 @@ function SearchResults() {
               <Text as="span">{title} </Text>
             </Button>
           </Link>
-          {/* <QuickAdd movie={data} onAdd={addMovie}/> */}
         </ListItem>
       ))}
     </UnorderedList>

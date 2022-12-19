@@ -37,7 +37,29 @@ const { data, error } = useSWR(id && `/api/movies/${id}`);
         );
         }
     if (data.success === false) {
-    return <Text color="red">{data.status_message}</Text>;
+    return (
+      <Box minW="150px"
+      pos="relative"
+       width='150px' 
+
+       _hover={{ cursor: 'pointer',
+        transform: 'scale(1.3)', transition: '0.5s ease'}}
+       >
+
+          <Container >
+          <Box 
+            backgroundColor={'gray'}
+            width="200"
+            height="180"
+            >
+                    <Text color="red">
+            Error loading movie with ID {id}: {JSON.stringify(error)}
+            '(database) error'
+            </Text>
+            </Box>
+            </Container>
+      </Box>
+    )
     }
 
   return (
@@ -49,13 +71,13 @@ const { data, error } = useSWR(id && `/api/movies/${id}`);
        _hover={{ cursor: 'pointer',
         transform: 'scale(1.3)', transition: '0.5s ease'}}
        >
-        <Link href={`/movies/${id}`} passHref legacyBehavior>
+        <Link href={`/movies/${id}`} passhref="true" legacybehavior="true">
           <Container >
           <Image 
             src={buildImageUrl(data.poster_path, 'w300')}
             alt="Movie poster"
             width="200"
-            height="350"
+            height="200"
             unoptimized 
             />
             </Container>

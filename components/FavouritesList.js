@@ -12,27 +12,11 @@ import {
 } from '@chakra-ui/react';
 import { useState, useEffect } from "react";
 import calculateRuntime from 'utils/calculateRuntime';
+import Runtimes from "./Runtimes";
 
 
 const FavouritesList = ({onDelete}) => {
-  const [runtimes, setRuntimes] = useState([])
 
-  const getRuntimes = async () => {
-    const response = await calculateRuntime()
-    const responseJson = await response
-
-
-    if(responseJson) {
-      const newRunTimes = responseJson.reduce(function(acc, value){
-        return acc+value
-      }, 0)
-      setRuntimes(newRunTimes)
-    }
-  }
-
-  useEffect( () => {
-    getRuntimes();
-    }, [])
 
 
   const { data, error } = useSWR(`/api/favourites/all`);
@@ -53,15 +37,10 @@ const FavouritesList = ({onDelete}) => {
   }
   
 
-  console.log(calculateRuntime(671))
 
   return (
     <Container>
-      <Heading as="h2" size={'md'}>
-        {'This list would take you to watch '}
-         {JSON.stringify(runtimes/60)} hours {runtimes%60 == 0 ? ' '  : runtimes%60 + ' minutes'}
-      </Heading>
-
+      <Runtimes />
       <Stack margin='30px'  flexWrap="wrap" marginBottom='100px' direction={'row'}>
         {data.favourites ? data.favourites?.map((movie, index)=> 
           <Movie key={index} onDelete={onDelete} id={movie.id}/>

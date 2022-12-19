@@ -49,7 +49,6 @@ useEffect( () => {
   if (data.success === false) {
     return <Text color="red">{data.status_message}</Text>;
   }
-  console.log(calculateGenres('555'))
   return (
 
     <Container>

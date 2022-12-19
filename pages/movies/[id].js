@@ -24,6 +24,7 @@ import AddWatchList from 'components/AddWatchList';
 import RecommendedMovies from 'components/RecommendedMovies';
 import FavouriteToggleButton from 'components/FavouriteToggleButton';
 import WatchListToggleButton from 'components/WatchListToggleButton';
+import MovieActors from 'components/MovieActors';
 
 const MovieContent = () => {
   
@@ -143,10 +144,15 @@ const MovieContent = () => {
           </Heading>
         </Box>
 
+
       </Stack>
     </Stack>
+    
+    <Container mt={'20px'}>
+          <MovieActors id={id} />
+    </Container>
     <Stack mt={'30px'}>
-      <Heading as={'h3'} fontSize='20px'>More movies like {data.title}:</Heading>
+      <Heading as={'h3'} fontSize='24px'>More movies like {data.title}:</Heading>
       <Container>
         <RecommendedMovies  id={data.id} title={data.title} />
       </Container>

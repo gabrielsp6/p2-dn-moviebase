@@ -32,7 +32,7 @@ const { data, error } = useSWR(id && `/api/movies/${id}`);
         );
         }
     if (data.success === false) {
-    return <Text color="red">{data.status_message}</Text>;
+    return <Text color="red">{data.status_message} </Text>;
     }
 
   return (
@@ -41,12 +41,12 @@ const { data, error } = useSWR(id && `/api/movies/${id}`);
       <Box minW="200px"
       pos="relative"
        width='200px' 
-       _groupHover={{ color: 'tomato' }}
+
        >
         <Container>
 
         {data ? data.title : 'loading movie details --- please wait'}
-        <Link href={`/movies/${id}`} passHref legacyBehavior>
+        <Link href={`/movies/${id}`} passhref="true" legacybehavior="true">
 
         <Image
           src={buildImageUrl(data.poster_path, 'w300')}

@@ -35,8 +35,6 @@ import FavouritesList from "./FavouritesList";
         </Center>
       );
     }
-
-    console.log(data);
     const recommendations = data.recommendations.results;
     return (
      

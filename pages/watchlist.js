@@ -44,7 +44,6 @@ const WatchListPage = () => {
           method: 'GET'
           })  
           const data = await res.json()
-          console.log(data)
           return data
       } catch (e) {
           console.log(e)

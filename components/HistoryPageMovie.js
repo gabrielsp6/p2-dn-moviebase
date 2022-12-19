@@ -44,16 +44,16 @@ const [selectedDate, setSelectedDate] = useState(null)
   return (
    
 
-      <Box key={id} 
-      pos="relative"
-       width='250px' 
-       margin='15px'
-       marginBottom={'10px'}
-       padding='0'
-       border={'2px'}
-       borderRadius={'10px'}
-       padding={'15px'}
-       >
+    <Box key={id} 
+    pos="relative"
+      width='250px' 
+      margin='15px'
+      marginBottom={'10px'}
+      padding='0'
+      border={'2px'}
+      borderRadius={'10px'}
+      padding={'15px'}
+      >
 
         <DatePicker 
           selected={selectedDate}
@@ -70,13 +70,7 @@ const [selectedDate, setSelectedDate] = useState(null)
 
         <SetDateButton id={data.id} date={selectedDate}/>
 
-
-
-
-
-
         <Container>
-
           <Container 
             position='absolute'
             width='79%'
@@ -99,16 +93,16 @@ const [selectedDate, setSelectedDate] = useState(null)
               </Container>
 
           </Container>
-        <Button onClick={() => onDelete(id)}
-         cursor='pointer'
-          position={'absolute'}
-        
-          left='30%'
-          top='180px'
-          >
-        Delete
-        </Button>
-        <Link href={`/movies/${id}`} passHref legacyBehavior>
+          <Button onClick={() => onDelete(id)}
+          cursor='pointer'
+            position={'absolute'}
+          
+            left='30%'
+            top='180px'
+            >
+          Delete
+          </Button>
+          <Link href={`/movies/${id}`} passHref legacyBehavior>
 
        
           <Image
@@ -117,11 +111,12 @@ const [selectedDate, setSelectedDate] = useState(null)
         
             width="200"
             height="350"
+            priority={'42'}
 
             unoptimized
             
             />
-        </Link>
+          </Link>
           {isHistory?  (<div>watched on {date?.slice(0,10)}</div>) : ' '}
 
           </Container>

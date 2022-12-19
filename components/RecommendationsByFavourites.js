@@ -37,6 +37,21 @@ const RecommendationsByFavourites= ({id}) => {
       )
     }
 
+    if (data.success === false) {
+      return <Text color="red">{data.status_message}</Text>;
+      }
+      if(data.favourites.length == 0) {
+        return (
+          <Container>
+          <Heading as={'h5'} fontSize='24px' color={"#805AD5"}>
+          Add movies to favourites, to get proper recommendations 
+          </Heading>
+
+          </Container>
+        )
+      }
+  
+
 return (
   <Container>
   <Heading as="h2" size={'lg'}>

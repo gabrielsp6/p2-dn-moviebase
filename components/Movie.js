@@ -112,7 +112,7 @@ const [selectedDate, setSelectedDate] = useState(null)
           >
         Delete
         </Button>
-        <Link href={`/movies/${id}`} passHref legacyBehavior>
+        <Link href={`/movies/${id}`} passhref="true" legacybehavior="true">
 
           <Image
             src={buildImageUrl(data.poster_path, 'w200')}

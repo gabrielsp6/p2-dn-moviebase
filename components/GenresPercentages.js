@@ -33,13 +33,17 @@ const GenresPercentages = () => {
     
     if(!genresList) {
         return (
-            'add more movies for a proper percentage calculation of genres'
+            <Heading as="h2" size={'md'} color={"#805AD5"}>
+                {'Add more movies, for a proper calculation of genres...'}
+            </Heading>
         )
     }
 
     if(genresList.length < 3) {
         return (
-            'add more movies for a proper percentage calculation of genres'
+            <Heading as="h2" size={'md'} color={"#805AD5"}>
+                {'Add more movies, for a proper calculation of genres...'}
+            </Heading>
         )
     }
   
@@ -49,7 +53,7 @@ const GenresPercentages = () => {
         <PieChart viewBoxSize={'[100,100]'} radius='50'
   data={[
     { title: 'One', value: parseInt((genresList[Object.keys(genresList)[0]])), color: 'blue' },
-    { title: 'Two', value: parseInt((genresList[Object.keys(genresList)[1]])), color: 'purple' },
+    { title: 'Two', value: parseInt((genresList[Object.keys(genresList)[1]])), color:"#805AD5"},
     { title: 'Three', value: parseInt((genresList[Object.keys(genresList)[2]])), color: 'white' },
     { title: 'Three', value: parseInt((genresList[Object.keys(genresList)[3]])), color: 'green' }
   ]}
