@@ -25,11 +25,10 @@ const SetDateButton = ({id, date}) => {
             
             cursor='pointer'
             height={'28px'}
-            margin={'10px'}
             alignSelf={'center'}
             justifySelf={'center'}
             >
-                SET 
+              Change 
             </Button>
       </Container>
     )

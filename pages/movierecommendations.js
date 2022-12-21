@@ -2,6 +2,7 @@ import React from 'react'
 import {
   Container,
   Heading,
+  Text
 } from '@chakra-ui/react';
 import Layout from 'components/Layout';
 import RecommendationsByHistory from 'components/RecommendationsByHistory';
@@ -13,12 +14,12 @@ const MovieRecommendations = () => {
   return (
     <Layout title="Movie Recommendations">
       <Container>
-      <Heading as="h2" size={'md'}>
+      <Text size={'md'}>
         Recommendations based on a random movie from your favourites and one from your watch history
-      </Heading>
-      <Heading as="h2" size={'md'}>
         (refresh for different results)
-      </Heading>
+      </Text>
+
+
       </Container>
       <RecommendationsByFavourites />
       <RecommendationsByHistory/>

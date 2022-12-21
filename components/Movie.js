@@ -50,8 +50,8 @@ const [selectedDate, setSelectedDate] = useState(null)
        _hover={{ cursor: 'pointer',
        
        transform: 'scale(1.1)', transition: '0.5s ease'}}
-       margin='2px'
-       marginBottom={10}
+
+       mb='20px'
        padding='0'
        >
 
@@ -122,7 +122,7 @@ const [selectedDate, setSelectedDate] = useState(null)
             height="350"
 
             unoptimized
-            
+            priority="true"
             />
         </Link>
           </Container>

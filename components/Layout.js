@@ -64,6 +64,9 @@ function Header() {
             <MenuItem href="/favourites" >
               Favourites
             </MenuItem>
+            <MenuItem href="/collections" >
+              Collections
+            </MenuItem>
           </Stack>
 
           <Spacer />

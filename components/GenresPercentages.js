@@ -52,23 +52,23 @@ const GenresPercentages = () => {
         <Container>
         <PieChart viewBoxSize={'[100,100]'} radius='50'
   data={[
-    { title: 'One', value: parseInt((genresList[Object.keys(genresList)[0]])), color: 'blue' },
+    { title: 'One', value: parseInt((genresList[Object.keys(genresList)[0]])), color: '#9E86D5' },
     { title: 'Two', value: parseInt((genresList[Object.keys(genresList)[1]])), color:"#805AD5"},
     { title: 'Three', value: parseInt((genresList[Object.keys(genresList)[2]])), color: 'white' },
-    { title: 'Three', value: parseInt((genresList[Object.keys(genresList)[3]])), color: 'green' }
+    { title: 'Three', value: parseInt((genresList[Object.keys(genresList)[3]])), color: '#B171C3' }
   ]}
 />
         </Container>
 
 
-        <Heading as="h2" size={'md'} color='blue' >
+        <Heading as="h2" size={'md'} color='#9E86D5' >
             {'This list contains '}
             {genresList && JSON.stringify(genresList[Object.keys(genresList)[0]]).slice(1,3) }
             {' % '}
             {genresList && JSON.stringify(Object.keys(genresList)[0]).replace(/['"]+/g, '') }
             {' '}
         </Heading>
-        <Heading as="h2" size={'md'} color='purple'>
+        <Heading as="h2" size={'md'} color='#805AD5'>
             {genresList && JSON.stringify(genresList[Object.keys(genresList)[1]]).slice(1,3) }
             {' % '}
             {genresList && JSON.stringify(Object.keys(genresList)[1]).replace(/['"]+/g, '') }
@@ -80,7 +80,7 @@ const GenresPercentages = () => {
             {genresList && JSON.stringify(Object.keys(genresList)[2]).replace(/['"]+/g, '') }
             {' '}
         </Heading>
-        <Heading as="h2" size={'md'} color='green'>
+        <Heading as="h2" size={'md'} color='#B171C3'>
             {genresList && JSON.stringify(genresList[Object.keys(genresList)[3]]).slice(1,3) }
             {' % '}
             {genresList && JSON.stringify(Object.keys(genresList)[3]).replace(/['"]+/g, '') }

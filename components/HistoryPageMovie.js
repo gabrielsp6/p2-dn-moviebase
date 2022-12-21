@@ -53,6 +53,7 @@ const [selectedDate, setSelectedDate] = useState(null)
       border={'2px'}
       borderRadius={'10px'}
       padding={'15px'}
+      bg='#46258e'
       >
 
         <DatePicker 
@@ -98,17 +99,17 @@ const [selectedDate, setSelectedDate] = useState(null)
             position={'absolute'}
           
             left='30%'
-            top='180px'
+            top='300px'
             >
           Delete
           </Button>
-          <Link href={`/movies/${id}`} passHref legacyBehavior>
+          <Link href={`/movies/${id}`} passhref="true" legacybehavior="true">
 
        
           <Image
             src={buildImageUrl(data.poster_path, 'w200')}
             alt="Movie poster"
-        
+            priority="true"
             width="200"
             height="350"
             priority={'42'}
