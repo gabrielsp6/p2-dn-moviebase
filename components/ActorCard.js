@@ -19,10 +19,8 @@ const ActorCard = ({id, actor}) => {
 
   return (
     <Box key={id}
+    margin={'20px'}
 
-    minW="200px"
-    pos="relative"
-    width='100px' 
     >
 
 

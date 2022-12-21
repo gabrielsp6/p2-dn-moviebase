@@ -22,9 +22,6 @@ export default function Home() {
         title={collectionArray.lotrCollection.title} 
         posterUrl={collectionArray.lotrCollection.posterUrl} 
         totalRuntime={collectionArray.lotrCollection.totalRuntime}/>
-
-
-    
         </Container>
 
         <Container display={'flex'} flexDirection={'row'} alignItems="center" mt={'50px'}>
@@ -42,9 +39,6 @@ export default function Home() {
         title={collectionArray.marvelCollectionThree.title} 
         posterUrl={collectionArray.marvelCollectionThree.posterUrl} 
         totalRuntime={collectionArray.marvelCollectionThree.totalRuntime}/>
-
-
-    
         </Container>
 
 

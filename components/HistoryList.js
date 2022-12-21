@@ -33,7 +33,7 @@ const HistoryList = ({movies, onDelete}) => {
     )
   }
   return (
-    <Stack m={'33px'}  flexWrap="wrap" mb="4" direction={'row'}>
+    <Stack m={'33px'}  flexWrap="wrap" mb="4" direction={'row'} >
       {data.historylist ? data.historylist?.map((movie, index)=>
         <HistoryPageMovie key={index} onDelete={onDelete} id={movie.id} isHistory={true} date={movie.date}/>
       ) : 'Loading History List'} 

@@ -50,10 +50,12 @@ const [selectedDate, setSelectedDate] = useState(null)
       margin='15px'
       marginBottom={'10px'}
       padding='0'
-      border={'2px'}
+      
       borderRadius={'10px'}
       padding={'15px'}
       bg='#46258e'
+      boxShadow="2px 4px 8px rgba(5, 5, 5, 0.5)"
+      rounded={'20px'}
       >
 
         <DatePicker 

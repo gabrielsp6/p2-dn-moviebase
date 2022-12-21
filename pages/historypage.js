@@ -74,7 +74,9 @@ useEffect(() => {
       <Container>
       <Heading as="h2" marginBottom={'20px'}>Your watch History</Heading>
       </Container>
-      <Container border={'2px'} borderRadius={'10px'}>
+      <Container       
+      boxShadow="2px 4px 8px rgba(5, 5, 5, 0.5)"
+      rounded={'20px'}>
           <HistoryList movies={historyList} onDelete={deleteFromHistoryList}/>
       </Container>
     </Layout>

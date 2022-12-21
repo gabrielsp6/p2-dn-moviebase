@@ -109,6 +109,7 @@ const [selectedDate, setSelectedDate] = useState(null)
         
           left='30%'
           top='180px'
+          backgroundColor={'rgba(0,0,0, 0.65)'}
           >
         Delete
         </Button>
