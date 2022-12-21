@@ -31,13 +31,13 @@ import React, {useEffect, useState, useRef} from 'react'
     return (
       <Container>
 
-      <Button onClick={() => setIsOpen(true)} width={"200px"} height={"300px"} display={'flex'} flexDirection={'column'}>
+      <Button onClick={() => setIsOpen(true)} width={"400px"} height={"500px"} display={'flex'} flexDirection={'column'}>
         <Text mb={'10px'} fontSize='m'>{title}</Text>
         <Image 
         src={buildImageUrl(posterUrl, 'w300')}
         alt="Movie poster"
-        width="200"
-        height="200"
+        width="300"
+        height="300"
         unoptimized 
         rounded="5%"
         />
