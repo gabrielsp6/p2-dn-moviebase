@@ -37,9 +37,10 @@ import FavouritesList from "./FavouritesList";
       }
 
     return (
-        <Heading as="h2" size={'lg'}>
+        <>
         {data.title}
-        </Heading>
+        </>
+
     )
 
 
@@ -68,9 +69,9 @@ import FavouritesList from "./FavouritesList";
     <>
      <Heading as="h2">Because you favourited: 
      </Heading>
-     <Heading as="h2" size={'lg'}>
+     <Text color={"#805AD5"} fontSize='xl' fontWeight={'700'}>
      <GetMovieTitleFromId movieId={id} />
-     </Heading>
+     </Text>
         <Recommendations movies={recommendations} />
     </>
     );

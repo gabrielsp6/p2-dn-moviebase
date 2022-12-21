@@ -45,7 +45,7 @@ const { data, error } = useSWR(id && `/api/movies/${id}`);
        >
         <Container>
 
-        {data ? data.title : 'loading movie details --- please wait'}
+        
         <Link href={`/movies/${id}`} passhref="true" legacybehavior="true">
 
         <Image
@@ -56,6 +56,7 @@ const { data, error } = useSWR(id && `/api/movies/${id}`);
           unoptimized
           />
         </Link>
+        <Text> {data ? data.title : 'loading movie details --- please wait'}</Text>
           </Container>
       </Box>
     </div>

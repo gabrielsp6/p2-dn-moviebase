@@ -15,7 +15,7 @@ const MovieRecommendations = () => {
     <Layout title="Movie Recommendations">
       <Container>
       <Text size={'md'}>
-        Recommendations based on a random movie from your favourites and one from your watch history
+        Recommendations based on one random movie from your favourites and one from your watch history
         (refresh for different results)
       </Text>
 
