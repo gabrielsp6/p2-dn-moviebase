@@ -104,11 +104,13 @@ import React, {useEffect, useState, useRef} from 'react'
                 <Button onClick={() => scrollableContent.current.scrollBy(500, 0)}><ArrowRightIcon /></Button>
                 </Container>
                 <ModalFooter>
+               
+              
                   <Button onClick={addCollection}>
-                  add to collection
+                  Add to Favourites
                   </Button>
                   <Button onClick={deleteCollection}>
-                  delete collection
+                  Delete from Favourites
                   </Button>
                   <Button onClick={() => setIsOpen(false)}>Cancel</Button>
                 </ModalFooter>
@@ -116,7 +118,7 @@ import React, {useEffect, useState, useRef} from 'react'
                 
               </ModalContent>
             </Modal>
-      
+
           </Container>
   
     )
