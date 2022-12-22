@@ -1,6 +1,6 @@
-export const collectionArray = [
+export const collectionArrayJson = {
     
-     {
+     harryPotterCollection : {
         movies: [
           {id: 671},
           {id: 767},
@@ -19,7 +19,7 @@ export const collectionArray = [
     
         },
     
-        {
+       shrekCollection : {
           movies: [
             {id: 808},
             {id: 809},
@@ -36,7 +36,7 @@ export const collectionArray = [
     
       },
     
-      {
+       lotrCollection : {
         movies: [
           {id: 121},
           {id: 120},
@@ -52,7 +52,7 @@ export const collectionArray = [
     
     },
     
-     {
+     marvelCollectionOne : {
       movies: [
         {id: 1724},
         {id: 1726},
@@ -68,7 +68,7 @@ export const collectionArray = [
     
     },
     
-     {
+     marvelCollectionTwo : {
       movies: [
         {id: 68721},
         {id: 76338},
@@ -84,7 +84,7 @@ export const collectionArray = [
     
     },
     
-     {
+     marvelCollectionThree : {
       movies: [
         {id: 271110},
         {id: 284052},
@@ -104,7 +104,7 @@ export const collectionArray = [
     
     },
 
-    {
+    horrorOne : {
       movies: [
         {id: 396422},
         {id: 250546},
@@ -114,53 +114,13 @@ export const collectionArray = [
         {id: 423108},
         {id: 439079},
         {id: 968051},
-        {id:480414}
-       
+        {id: 299534},
+        {id: 429617},
     
       ],
       title: 'Conjuring Collection',
-      totalRuntime: '12h 29 min ',
+      totalRuntime: '17h 13 min ',
       posterUrl: '/wVYREutTvI2tmxr6ujrHT704wGF.jpg'
     
-    },
-
-    {
-      movies: [
-        {id: 49018},
-        {id: 280092},
-        {id: 91586},
-        {id: 259693},
-        {id: 614479},
-      
-
-        
-       
-    
-      ],
-      title: 'Insidious Collection',
-      totalRuntime: '17h 13 min ',
-      posterUrl: '/tmlDFIUpGRKiuWm9Ixc6CYDk4y0.jpg'
-    
-    },
-
-    
-    {
-      movies: [
-        {id: 616820},
-        {id: 948},
-        {id: 424139},
-        {id: 610253},
-        {id: 2082},
-        {id: 24150},
-        {id: 11281},
-        {id: 11357},
-        {id: 11361},
-        {id: 10987},
-
-      ],
-      title: 'Halloween Collection',
-      totalRuntime: '17h 13 min ',
-      posterUrl: '/yoAKHpveZ4Z1wwwXoD31dXj3H8s.jpg'
-    
     }
-  ]
+}

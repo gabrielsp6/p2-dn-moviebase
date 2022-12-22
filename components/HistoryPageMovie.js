@@ -49,8 +49,7 @@ const [selectedDate, setSelectedDate] = useState(null)
       width='250px' 
       margin='15px'
       marginBottom={'10px'}
-      padding='0'
-      
+
       borderRadius={'10px'}
       padding={'15px'}
       bg='#46258e'

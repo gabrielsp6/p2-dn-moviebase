@@ -58,7 +58,7 @@ import React, {useEffect, useState, useRef} from 'react'
 
   
     return (
-      <Container>
+      <Container width={'300'}>
 
       <Button onClick={() => setIsOpen(true)} width={"400px"} height={"500px"} display={'flex'} flexDirection={'column'}>
         <Text mb={'10px'} fontSize='m'>{title}</Text>
@@ -69,6 +69,7 @@ import React, {useEffect, useState, useRef} from 'react'
         height="300"
         unoptimized 
         rounded="5%"
+        
         />
         </Button>
             <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} >
