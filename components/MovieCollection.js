@@ -106,13 +106,13 @@ import React, {useEffect, useState, useRef} from 'react'
                 <ModalFooter>
                
               
-                  <Button onClick={addCollection}>
+                  <Button onClick={addCollection} marginLeft={'10px'}>
                   Add to Favourites
                   </Button>
-                  <Button onClick={deleteCollection}>
+                  <Button onClick={deleteCollection} marginLeft={'10px'}>
                   Delete from Favourites
                   </Button>
-                  <Button onClick={() => setIsOpen(false)}>Cancel</Button>
+                  <Button onClick={() => setIsOpen(false)} marginLeft={'10px'}>Cancel</Button>
                 </ModalFooter>
 
                 
