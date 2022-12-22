@@ -27,6 +27,35 @@ import React, {useEffect, useState, useRef} from 'react'
   const MovieCollection = ({list, title, posterUrl, totalRuntime, comment}) => {
     const scrollableContent = useRef(null);
     const [isOpen, setIsOpen] = useState(false)
+
+    async function addCollection() {
+      const response = await fetch('http://localhost:3000/api/favourites/addcollection', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          list: list
+        })
+      })
+      const data = await response.json()
+      console.log(data)
+    }
+
+    async function deleteCollection() {
+      const response = await fetch('http://localhost:3000/api/favourites/addcollection', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          list: list
+        })
+      })
+      const data = await response.json()
+      console.log(data)
+    }
+
   
     return (
       <Container>
@@ -75,6 +104,12 @@ import React, {useEffect, useState, useRef} from 'react'
                 <Button onClick={() => scrollableContent.current.scrollBy(500, 0)}><ArrowRightIcon /></Button>
                 </Container>
                 <ModalFooter>
+                  <Button onClick={addCollection}>
+                  add to collection
+                  </Button>
+                  <Button onClick={deleteCollection}>
+                  delete collection
+                  </Button>
                   <Button onClick={() => setIsOpen(false)}>Cancel</Button>
                 </ModalFooter>
 
