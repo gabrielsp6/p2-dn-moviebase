@@ -1,7 +1,4 @@
 ## Moviebase
-
-![movie.png](./docs/movie.png)
-
 ## Setup guide
 1. Clone the repository
 2. Install the necessary dependencies
